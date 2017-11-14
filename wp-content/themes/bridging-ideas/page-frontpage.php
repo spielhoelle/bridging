@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="<?php echo $VAR ?>content-area">
+	<div id="primary" class="content-area">
 
 		<main id="main" class="site-main">
 
