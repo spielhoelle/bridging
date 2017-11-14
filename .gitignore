@@ -1,24 +1,5 @@
-
-*.log
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-wp-config.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
-
-*.map
-
-# w3 totalcache stuff
-nginx.conf
-wp-content/db.php
-
+/wp-admin
+/wp-includes
 *.log
 .htaccess
 sitemap.xml
@@ -64,10 +45,37 @@ wp-content/mu-plugins/limit-login-attempts
 wp-content/mu-plugins/wpengine-common
 wp-content/mysql.sql
 
+# wp core (as of 3.4.1)
+/db-config.php
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-app.php
+/wp-atom.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-commentsrss2.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-feed.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-rdf.php
+/wp-rss.php
+/wp-rss2.php
+/wp-pass.php
+/wp-register.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/wp-content/index.php
 /wp-content/themes/twentyten
-/wp-content/themes/twentyfifteen
-/wp-content/themes/twentysixteen
-/wp-content/themes/twentyseventeen
+/wp-content/themes/index.php
+/wp-content/plugins/index.php
 
 # large/disallowed file types
 # a CDN should be used for these
@@ -104,6 +112,7 @@ wp-content/mysql.sql
 *.wmv
 *.avi
 
-wp-content/cache/
-wp-content/plugins/w3-total-cache/
-wp-content/w3tc-config/
+/wp-content/themes/twentyten
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyseventeen
