@@ -20,8 +20,8 @@ services:
       WORDPRESS_DB_PASSWORD: example
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
-      WORDPRESS_DB_NAME: bridging-ideas
+      WORDPRESS_DB_NAME: wordpress
       WORDPRESS_TABLE_PREFIX: wp_
     working_dir: /var/www/html
     volumes:
-      - ~/develop/devugees-projects/bridging-ideas/wp-content:/var/www/html/wp-content
+      - ~/develop/bridging-ideas-clone/wp-content:/var/www/html/wp-content

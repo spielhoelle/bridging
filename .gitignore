@@ -115,3 +115,4 @@ wp-content/mysql.sql
 /wp-content/themes/twentyfifteen
 /wp-content/themes/twentysixteen
 /wp-content/themes/twentyseventeen
+docker-compose.yml
