@@ -14,12 +14,15 @@
         </div><!-- #content -->
 
         <footer id="colophon" class="site-footer">
+<div class="container">
 <?php 
 get_sidebar();
 ?>
-                <div class="site-info container-fluid">
-                <p class="text-center">Copyright © 2017 Bridging People and Ideas</p>
-                </div><!-- .site-info -->
+              <div class="site-info">
+                <div class="text-center py-3">Copyright © 2017 Bridging People and Ideas</div>
+                </div>
+              </div>
+
         </footer><!-- #colophon -->
 </div><!-- #page -->
 

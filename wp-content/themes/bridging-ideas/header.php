@@ -36,12 +36,7 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			<?php
 			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
+			?>
 		</div><!-- .site-branding -->
 		<nav class="nav navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navbar-example2">
 			<div class="container">
