@@ -11,14 +11,16 @@
 
 ?>
 
-	</div><!-- #content -->
+        </div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-
-		<div class="site-info container-fluid">
-		<p class="text-center">Copyright © 2017 Bridging People and Ideas</p>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+        <footer id="colophon" class="site-footer">
+<?php 
+get_sidebar();
+?>
+                <div class="site-info container-fluid">
+                <p class="text-center">Copyright © 2017 Bridging People and Ideas</p>
+                </div><!-- .site-info -->
+        </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

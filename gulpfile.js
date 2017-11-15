@@ -4,7 +4,7 @@ const gulp          = require('gulp'),
     autoprefixer  = require('gulp-autoprefixer');
 
 
-const wpPath = './wp-content/themes/bringing-ideas'
+const wpPath = './wp-content/themes/bridging-ideas'
 const dockerPort = 8080
 
 gulp.task('serve', ['sass'], function() {
@@ -15,7 +15,7 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch(`${wpPath}/*.php`).on('change', browserSync.reload);
-    gulp.watch(`${wpPath}/sass/**/*.sass`, ['sass']);
+    gulp.watch(`${wpPath}/sass/*.sass`, ['sass']);
 });
 
 gulp.task('sass', function() {
