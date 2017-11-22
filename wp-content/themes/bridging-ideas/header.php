@@ -22,25 +22,14 @@
 </head>
 
 <body <?php body_class(); ?> data-target="#navbar-example2" data-spy="scroll" >
-<div id="page" class="site">
+<div id="page" class="site pt-5">
         <!--<a class="skip-link screen-reader-text" href="#content">--><?php //esc_html_e( 'Skip to content', 'bridging-ideas' ); ?><!--</a>-->
 
         <header id="masthead" class="site-header">
 
-                <div class="site-branding">
-<?php
-the_custom_logo();
-if ( is_front_page() && is_home() ) : ?>
-                                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                        <?php else : ?>
-                                <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-<?php
-endif;
-?>
-                </div><!-- .site-branding -->
                 <nav class="nav navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navbar-example2">
                         <div class="container">
-  <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' );the_custom_logo(); ?></a>
+  <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="text-transparent position-absolute"><?php bloginfo( 'name' ); ?></span> <?php the_custom_logo(); ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
