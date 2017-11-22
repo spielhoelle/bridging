@@ -12,6 +12,10 @@
         location = "?jumpto=" + this.getAttribute("href");
       });
     } else {
+      $('.custom-logo-link').click(function (e) {
+        e.preventDefault();
+        jQuery('html,body').animate({scrollTop: 0}, 1000); // change number for scroll speed, higher = slower
+      })
       //um zur ID position der Seite zu scrollen
       //bezogen auf alle elemente mit dem attribut 'rel'
       $('#navbarNav a[href^="#"]').click(function (e) {
