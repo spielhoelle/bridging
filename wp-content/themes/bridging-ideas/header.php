@@ -21,7 +21,7 @@
         <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> data-target="#navbar-example2" data-spy="scroll" >
+<body <?php body_class(); ?> data-target="#navbar-example2" data-spy="scroll" data-offset="57" >
 <div id="page" class="site">
 
     <header id="masthead" class="site-header">

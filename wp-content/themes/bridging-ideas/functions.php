@@ -201,3 +201,13 @@ function add_menuclass($ulclass) {
   return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
 }
 add_filter('wp_nav_menu','add_menuclass');
+
+function modify_jquery_version() {
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery',
+'http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js', false, '2.0.s');
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('init', 'modify_jquery_version');
