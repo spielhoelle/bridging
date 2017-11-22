@@ -14,14 +14,14 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area py-5">
 		<main id="main" class="site-main container">
 
 		<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
+				<header class="py-3">
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 

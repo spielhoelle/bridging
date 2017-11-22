@@ -22,32 +22,32 @@
 </head>
 
 <body <?php body_class(); ?> data-target="#navbar-example2" data-spy="scroll" >
-<div id="page" class="site pt-5">
-        <!--<a class="skip-link screen-reader-text" href="#content">--><?php //esc_html_e( 'Skip to content', 'bridging-ideas' ); ?><!--</a>-->
+<div id="page" class="site">
 
-        <header id="masthead" class="site-header">
+    <header id="masthead" class="site-header">
+      <h1 class="text-transparent position-absolute"><?php bloginfo( 'name' ); ?></h1> 
 
-                <nav class="nav navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navbar-example2">
-                        <div class="container">
-  <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="text-transparent position-absolute"><?php bloginfo( 'name' ); ?></span> <?php the_custom_logo(); ?></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-<?php
-$defaults = array(
-  'menu' => '',
-  'menu_class' => 'menu navbar-nav',
-  'menu_id' => '',
-  'echo' => true,
-  'fallback_cb' => 'wp_page_menu',
-  'items_wrap' => '<ul  class="%2$s">%3$s</ul>',
-  'item_spacing' => 'preserve',
-  'depth' => 0,
-  'walker' => '',
-  'theme_location' => '' );
-wp_nav_menu($defaults);
-?>
+      <nav class="nav navbar navbar-expand-lg navbar-light bg-white fixed-top" id="navbar-example2">
+        <div class="container">
+            <?php the_custom_logo(); ?>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <?php
+            $defaults = array(
+              'menu' => '',
+              'menu_class' => 'menu navbar-nav mt-3 mt-lg-0',
+              'menu_id' => '',
+              'echo' => true,
+              'fallback_cb' => 'wp_page_menu',
+              'items_wrap' => '<ul  class="%2$s">%3$s</ul>',
+              'item_spacing' => 'preserve',
+              'depth' => 0,
+              'walker' => '',
+              'theme_location' => '' );
+            wp_nav_menu($defaults);
+            ?>
 
                 </div>
  </div>

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("mb-5"); ?>>
 	<header class="entry-header">
 		<?php
 	if ( is_singular() ) :
@@ -20,16 +20,17 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php bridging_ideas_posted_on(); ?>
+                  <?php bridging_ideas_posted_on(); ?>
 		</div><!-- .entry-meta -->
 
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-                  the_excerpt();
-		?>
+          <?php
+            the_excerpt();
+          ?>
 	</div><!-- .entry-content -->
+
 
 </article><!-- #post-<?php the_ID(); ?> -->

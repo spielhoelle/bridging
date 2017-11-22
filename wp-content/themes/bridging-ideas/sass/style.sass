@@ -1,4 +1,6 @@
+$bg-primary: #68553d
 $bg-light: #eee
+$bg-grey: #ddd
 
 body.admin-bar
   #masthead
@@ -7,16 +9,17 @@ body.admin-bar
 
 .active
   box-shadow: 0 2px #000
-.bg-white
-  background-color: #fff
+.bg-primary
+  background-color: $bg-primary !important
+.bg-light
+  background-color: $bg-light !important
+.bg-grey
+  background-color: $bg-grey !important
 
 .navbar
   border-bottom: 1px solid black
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
 .site-footer
-
-
-  background-color: $bg-light
   #secondary
     display: flex
     > section
@@ -26,3 +29,13 @@ body.admin-bar
   height: auto
 .text-transparent
   color: transparent
+#page
+  padding-top: 56px
+
+a
+  color: $bg-primary
+
+#colophon
+  ul
+    list-style: none
+    padding-left: 0

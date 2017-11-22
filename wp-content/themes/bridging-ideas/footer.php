@@ -13,15 +13,19 @@
 
         </div><!-- #content -->
 
-        <footer id="colophon" class="site-footer">
-<div class="container">
-<?php 
-get_sidebar();
-?>
-              <div class="site-info">
-                <div class="text-center py-3">Copyright © 2017 Bridging People and Ideas</div>
-                </div>
+        <footer id="colophon" class="site-footer bg-light">
+          <div class="container">
+            <div class="row">
+              <?php 
+              get_sidebar();
+              ?>
               </div>
+            </div>
+
+            <div class="site-info bg-grey">
+              <div class="text-center py-3">Copyright © 2017 Bridging People and Ideas</div>
+              </div>
+            </div>
 
         </footer><!-- #colophon -->
 </div><!-- #page -->

@@ -26,8 +26,8 @@ if ( ! function_exists( 'bridging_ideas_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'bridging-ideas' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<i>'.esc_html_x( 'Posted on %s', 'post date', 'bridging-ideas' ),
+			$time_string . '</i>'
 		);
 
 		$byline = sprintf(
@@ -52,14 +52,14 @@ if ( ! function_exists( 'bridging_ideas_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'bridging-ideas' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'bridging-ideas' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links mr-2">' . esc_html__( 'Posted in %1$s', 'bridging-ideas' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'bridging-ideas' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'bridging-ideas' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links mr-2">' . esc_html__( 'Tagged %1$s', 'bridging-ideas' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
@@ -89,13 +89,13 @@ if ( ! function_exists( 'bridging_ideas_entry_footer' ) ) :
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'bridging-ideas' ),
 					array(
 						'span' => array(
-							'class' => array(),
+							'class' => array(""),
 						),
 					)
 				),
 				get_the_title()
 			),
-			'<span class="edit-link">',
+			'<span class="edit-link mr-2">',
 			'</span>'
 		);
 	}
