@@ -50,8 +50,8 @@
             ?>
 
                 </div>
- </div>
-</nav>
+           </div>
+          </nav>
 
         </header><!-- #masthead -->
 

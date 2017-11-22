@@ -158,9 +158,11 @@ add_action( 'wp_enqueue_scripts', 'wps_scripts' );
 function bridging_ideas_scripts() {
   wp_enqueue_style( 'bridging-ideas-style', get_stylesheet_uri() );
 
-  wp_enqueue_script( 'bridging-ideas-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+  wp_enqueue_script( 'bridging-ideas-navigation', get_template_directory_uri() . '/js/navigation.js', array(), null, true );
 
-  wp_enqueue_script( 'bridging-ideas-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+  wp_enqueue_script( 'page-scroll', get_template_directory_uri() . '/js/page-scroll.js', array(), null, true );
+
+  wp_enqueue_script( 'bridging-ideas-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), null, true );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
