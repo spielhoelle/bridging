@@ -18,7 +18,7 @@
       })
       //um zur ID position der Seite zu scrollen
       //bezogen auf alle elemente mit dem attribut 'rel'
-      $('#navbarNav a[href^="#"]').click(function (e) {
+      $('a[href^="#"]').click(function (e) {
         // wählt das element auf der seite aus welches die id des links hat
         var target = jQuery(this.getAttribute("href"));
         if (target.length ) {
