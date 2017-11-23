@@ -14,9 +14,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+        <div id="primary" class="content-area<?php echo (! is_front_page()) ? " container" : ""?>">
 	
-		<main id="main" class="site-main">
+		<main id="main" class="site-main<?php echo (! is_front_page()) ? " py-5" : ""?>">
 
 			<?php
 			while ( have_posts() ) : the_post();
