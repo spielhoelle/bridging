@@ -9,7 +9,7 @@
         //          e.preventDefault(); verhindert das eigentliche Verlinken von links sondern verweist nur auf die ID der Seite
         e.preventDefault();
         //setzt get parameter
-        location = "?jumpto=" + this.getAttribute("href");
+        location = "/?jumpto=" + this.getAttribute("href");
       });
     } else {
       $('.custom-logo-link').click(function (e) {
