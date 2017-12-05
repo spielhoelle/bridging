@@ -1859,7 +1859,7 @@ module.exports = panels.view.dialog.extend( {
 
 } );
 
-},{"../view/widgets/js-widget":30}],10:[function(require,module,exports){
+},{"../view/widgets/js-widget":31}],10:[function(require,module,exports){
 var panels = window.panels, $ = jQuery;
 
 module.exports = panels.view.dialog.extend( {
@@ -2501,21 +2501,22 @@ jQuery( function ( $ ) {
 		field,
 		form,
 		builderConfig;
-
-	if ( $( '#siteorigin-panels-metabox' ).length && $( 'form#post' ).length ) {
+	
+	var $panelsMetabox = $( '#siteorigin-panels-metabox' );
+	form = $( 'form#post' );
+	if ( $panelsMetabox.length && form.length ) {
 		// This is usually the case when we're in the post edit interface
-		container = $( '#siteorigin-panels-metabox' );
-		field = $( '#siteorigin-panels-metabox .siteorigin-panels-data-field' );
-		form = $( 'form#post' );
+		container = $panelsMetabox;
+		field = $panelsMetabox.find( '.siteorigin-panels-data-field' );
 
 		builderConfig = {
 			editorType: 'tinyMCE',
 			postId: $( '#post_ID' ).val(),
 			editorId: '#content',
-			builderType: $( '#siteorigin-panels-metabox' ).data( 'builder-type' ),
-			builderSupports: $( '#siteorigin-panels-metabox' ).data( 'builder-supports' ),
+			builderType: $panelsMetabox.data( 'builder-type' ),
+			builderSupports: $panelsMetabox.data( 'builder-supports' ),
 			loadOnAttach: panelsOptions.loadOnAttach && $( '#auto_draft' ).val() == 1,
-			loadLiveEditor: $( '#siteorigin-panels-metabox' ).data('live-editor') == 1,
+			loadLiveEditor: $panelsMetabox.data('live-editor') == 1,
 			liveEditorPreview: container.data('preview-url')
 		};
 	}
@@ -4100,9 +4101,10 @@ module.exports = Backbone.View.extend( {
 		// Move the panels box into a tab of the content editor
 		metabox.insertAfter( '#wp-content-wrap' ).hide().addClass( 'attached-to-editor' );
 
-		// Switch to the Page Builder interface as soon as we load the page if there are widgets
+		// Switch to the Page Builder interface as soon as we load the page if there are widgets or the normal editor
+		// isn't supported.
 		var data = this.model.get( 'data' );
-		if ( ! _.isEmpty( data.widgets ) || ! _.isEmpty( data.grids ) ) {
+		if ( ! _.isEmpty( data.widgets ) || ! _.isEmpty( data.grids ) || ! this.supports( 'revertToEditor' ) ) {
 			this.displayAttachedBuilder( { confirm: false } );
 		}
 
@@ -7088,11 +7090,41 @@ module.exports = Backbone.View.extend( {
 } );
 
 },{}],30:[function(require,module,exports){
+var $ = jQuery;
+
+var customHtmlWidget = {
+	addWidget: function( idBase, widgetContainer, widgetId ) {
+		var component = wp.customHtmlWidgets;
+		
+		var fieldContainer = $( '<div></div>' );
+		var syncContainer = widgetContainer.find( '.widget-content:first' );
+		syncContainer.before( fieldContainer );
+
+		var widgetControl = new component.CustomHtmlWidgetControl( {
+			el: fieldContainer,
+			syncContainer: syncContainer,
+		} );
+
+		widgetControl.initializeEditor();
+		
+		// HACK: To ensure CodeMirror resize for the gutter.
+		widgetControl.editor.codemirror.refresh();
+		
+		return widgetControl;
+	}
+};
+
+module.exports = customHtmlWidget;
+
+},{}],31:[function(require,module,exports){
+var customHtmlWidget = require( './custom-html-widget' );
 var mediaWidget = require( './media-widget' );
 var textWidget = require( './text-widget' );
 
 var jsWidget = {
+	CUSTOM_HTML: 'custom_html',
 	MEDIA_AUDIO: 'media_audio',
+	MEDIA_GALLERY: 'media_gallery',
 	MEDIA_IMAGE: 'media_image',
 	MEDIA_VIDEO: 'media_video',
 	TEXT: 'text',
@@ -7102,7 +7134,11 @@ var jsWidget = {
 		var widget;
 
 		switch ( idBase ) {
+			case this.CUSTOM_HTML:
+				widget = customHtmlWidget;
+				break;
 			case this.MEDIA_AUDIO:
+			case this.MEDIA_GALLERY:
 			case this.MEDIA_IMAGE:
 			case this.MEDIA_VIDEO:
 				widget = mediaWidget;
@@ -7118,7 +7154,7 @@ var jsWidget = {
 
 module.exports = jsWidget;
 
-},{"./media-widget":31,"./text-widget":32}],31:[function(require,module,exports){
+},{"./custom-html-widget":30,"./media-widget":32,"./text-widget":33}],32:[function(require,module,exports){
 var $ = jQuery;
 
 var mediaWidget = {
@@ -7158,7 +7194,7 @@ var mediaWidget = {
 
 module.exports = mediaWidget;
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 var $ = jQuery;
 
 var textWidget = {
