@@ -1,9 +1,12 @@
 $bg-primary: #68553d
+$bg-primary-light: #baa182
 $bg-light: #eee
 $bg-grey: #ddd
 
 body
   font-size: 1.2rem
+  color: #636365
+
 h1
   font-size: 2.5rem
 h2
@@ -44,6 +47,10 @@ body.admin-bar
 
 a
   color: $bg-primary
+  transition: color .3s ease
+  &:hover
+    color: $bg-primary-light
+    text-decoration: none
 
 #colophon
   ul
