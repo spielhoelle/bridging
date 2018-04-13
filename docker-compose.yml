@@ -24,4 +24,4 @@ services:
       WORDPRESS_TABLE_PREFIX: wp_
     working_dir: /var/www/html
     volumes:
-      - ~/develop/devugees-projects/bridging-ideas/wp-content:/var/www/html/wp-content
+      - ~/develop/dci/bridging-ideas/wp-content:/var/www/html/wp-content
